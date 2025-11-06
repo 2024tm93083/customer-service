@@ -1,0 +1,27 @@
+{
+  "name": "customer-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2024tm93083/customer-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2024tm93083/customer-service/issues"
+  },
+  "homepage": "https://github.com/2024tm93083/customer-service#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+  }
+}

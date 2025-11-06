@@ -1,0 +1,165 @@
+services:
+  customer-db:
+    image: postgres:15
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${CUSTOMER_DB}
+    volumes:
+      - ./migrations:/migrations:ro
+      - customer_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  restaurant-db:
+    image: postgres:15
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${RESTAURANT_DB}
+    volumes:
+      - ./migrations:/migrations:ro
+      - restaurant_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  order-db:
+    image: postgres:15
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${ORDER_DB}
+    volumes:
+      - ./migrations:/migrations:ro
+      - order_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+
+  payment-db:
+    image: postgres:15
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${PAYMENT_DB}
+    volumes:
+      - ./migrations:/migrations:ro
+      - payment_data:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
+
+  delivery-db:
+    image: postgres:15
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${DELIVERY_DB}
+    volumes:
+      - ./migrations:/migrations:ro
+      - delivery_data:/var/lib/postgresql/data
+    ports:
+      - "5437:5432"
+
+  migrator:
+    image: postgres:15
+    depends_on:
+      - customer-db
+      - restaurant-db
+      - order-db
+      - payment-db
+      - delivery-db
+    env_file: .env
+    volumes:
+      - ./migrations:/migrations:ro
+      - ./scripts:/scripts:ro
+      - ./seed:/seed:ro
+    entrypoint: [ "/scripts/run_migrations.sh" ]
+    restart: "no"
+
+  customer-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    depends_on:
+      - customer-db
+    ports:
+      - "3000:3000"
+    restart: "on-failure"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  restaurant-service:
+    build:
+      context: ../restaurant-service
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      POSTGRES_HOST: restaurant-db       # override to point to the restaurant DB container
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      RESTAURANT_DB: ${RESTAURANT_DB}    # ensure DB name env available to service
+    depends_on:
+      - restaurant-db
+    ports:
+      - "4000:4000"
+    restart: "on-failure"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:4000/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  payment-service:
+    build:
+      context: ../payment-service
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      POSTGRES_HOST: payment-db
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PAYMENT_DB: ${PAYMENT_DB}
+    ports:
+      - "6000:6000"
+    depends_on:
+      - payment-db
+    restart: "on-failure"
+
+  order-service:
+    build:
+      context: ../order-service
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      POSTGRES_HOST: order-db
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      ORDER_DB: ${ORDER_DB}
+      RESTAURANT_SERVICE_URL: "http://restaurant-service:4000"
+      PAYMENT_SERVICE_URL: "http://payment-service:6000"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - order-db
+      - restaurant-service
+      - payment-service
+    restart: "on-failure"
+
+
+volumes:
+  customer_data:
+  restaurant_data:
+  order_data:
+  payment_data:
+  delivery_data:

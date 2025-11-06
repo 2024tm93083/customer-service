@@ -1,0 +1,352 @@
+item_id,restaurant_id,name,category,price,is_available
+1,1,Tandoori Noodles,Main Course,240.86,True
+2,1,Mushroom Roll,Main Course,153.96,True
+3,1,Grilled Fry,Starter,412.97,True
+4,1,Chicken Pasta,Beverage,544.92,True
+5,1,Chilli Tikka,Dessert,202.06,True
+6,1,Chilli Fry,Main Course,288.65,True
+7,1,Grilled Burger,Starter,273.24,True
+8,1,Tandoori Burger,Beverage,430.05,True
+9,1,Veg Roll,Beverage,443.53,True
+10,1,Cheese Pizza,Main Course,266.03,True
+11,2,Masala Noodles,Main Course,460.67,True
+12,2,Butter Cake,Dessert,179.46,True
+13,2,Mushroom Noodles,Starter,181.3,True
+14,2,Mushroom Pasta,Main Course,590.92,True
+15,2,Masala Pasta,Dessert,197.1,True
+16,2,Masala Pizza,Beverage,330.96,True
+17,2,Chilli Pasta,Main Course,349.24,True
+18,2,Grilled Tikka,Main Course,227.61,True
+19,3,Mushroom Pasta,Beverage,522.0,False
+20,3,Mushroom Burger,Starter,325.95,True
+21,3,Masala Biryani,Beverage,220.2,True
+22,3,Veg Noodles,Beverage,340.37,True
+23,3,Cheese Pasta,Main Course,546.25,True
+24,4,Chilli Roll,Starter,118.07,False
+25,4,Mushroom Burger,Main Course,358.61,True
+26,4,Cheese Roll,Main Course,457.65,False
+27,4,Paneer Wrap,Dessert,304.17,True
+28,4,Mushroom Burger,Beverage,355.9,True
+29,5,Paneer Noodles,Dessert,289.92,True
+30,5,Paneer Biryani,Beverage,556.72,True
+31,5,Cheese Noodles,Starter,211.21,True
+32,5,Tandoori Pizza,Beverage,330.06,True
+33,5,Veg Biryani,Main Course,333.58,False
+34,5,Mushroom Burger,Dessert,432.02,True
+35,5,Grilled Noodles,Main Course,488.92,True
+36,5,Butter Pizza,Dessert,451.1,True
+37,5,Chilli Burger,Beverage,100.35,True
+38,5,Butter Pizza,Dessert,259.16,True
+39,6,Cheese Biryani,Dessert,175.38,True
+40,6,Chilli Tikka,Starter,512.95,True
+41,6,Veg Fry,Dessert,415.58,True
+42,6,Paneer Pizza,Starter,426.98,True
+43,6,Cheese Biryani,Main Course,526.09,True
+44,6,Grilled Wrap,Main Course,203.27,True
+45,6,Tandoori Burger,Starter,433.23,False
+46,6,Masala Pizza,Beverage,445.4,False
+47,6,Chicken Roll,Starter,376.53,True
+48,6,Chilli Pizza,Main Course,335.62,False
+49,6,Paneer Roll,Beverage,551.73,True
+50,7,Grilled Burger,Starter,179.18,True
+51,7,Grilled Cake,Beverage,431.65,True
+52,7,Butter Pasta,Beverage,598.98,True
+53,7,Veg Wrap,Starter,109.28,True
+54,7,Butter Biryani,Beverage,341.34,True
+55,7,Paneer Pizza,Beverage,411.64,True
+56,7,Chicken Wrap,Dessert,336.27,False
+57,7,Tandoori Pizza,Dessert,316.59,True
+58,8,Tandoori Tikka,Dessert,245.44,True
+59,8,Chilli Wrap,Dessert,535.48,True
+60,8,Mushroom Roll,Starter,264.45,True
+61,8,Masala Burger,Starter,491.11,True
+62,8,Chilli Fry,Beverage,371.7,True
+63,8,Chilli Noodles,Starter,102.11,True
+64,8,Grilled Cake,Starter,493.51,False
+65,8,Cheese Pasta,Main Course,412.41,False
+66,8,Chicken Pizza,Starter,432.5,True
+67,9,Chicken Burger,Starter,309.79,True
+68,9,Paneer Wrap,Main Course,492.27,False
+69,9,Masala Noodles,Main Course,309.89,True
+70,9,Paneer Pasta,Starter,347.88,False
+71,9,Paneer Biryani,Beverage,386.66,True
+72,9,Grilled Biryani,Starter,438.98,False
+73,9,Cheese Burger,Beverage,483.94,False
+74,10,Chicken Roll,Main Course,546.89,True
+75,10,Chilli Tikka,Starter,440.88,True
+76,10,Chicken Pizza,Starter,163.48,True
+77,10,Masala Cake,Main Course,324.39,True
+78,10,Paneer Wrap,Main Course,463.86,True
+79,10,Masala Fry,Beverage,329.29,True
+80,11,Paneer Tikka,Starter,106.36,False
+81,11,Chicken Pasta,Dessert,255.25,False
+82,11,Veg Roll,Starter,257.14,False
+83,11,Grilled Roll,Main Course,171.45,True
+84,11,Butter Burger,Beverage,337.48,True
+85,12,Cheese Wrap,Dessert,238.95,False
+86,12,Cheese Wrap,Starter,514.64,False
+87,12,Masala Cake,Beverage,587.19,True
+88,12,Chilli Pasta,Beverage,399.89,True
+89,12,Grilled Noodles,Starter,259.76,True
+90,12,Chilli Burger,Starter,243.26,True
+91,12,Cheese Burger,Dessert,586.69,False
+92,12,Grilled Wrap,Starter,368.99,True
+93,12,Chilli Pizza,Main Course,253.74,True
+94,13,Grilled Pizza,Dessert,392.19,True
+95,13,Chilli Roll,Starter,367.08,True
+96,13,Chicken Pizza,Beverage,388.8,True
+97,13,Tandoori Wrap,Beverage,352.08,True
+98,13,Mushroom Pizza,Main Course,145.09,True
+99,13,Butter Cake,Dessert,300.25,False
+100,13,Veg Pizza,Starter,560.31,True
+101,13,Butter Biryani,Dessert,415.37,True
+102,13,Veg Wrap,Starter,271.46,False
+103,13,Cheese Tikka,Starter,115.79,False
+104,13,Grilled Cake,Main Course,229.8,True
+105,14,Chicken Roll,Main Course,226.0,True
+106,14,Butter Pizza,Main Course,288.1,True
+107,14,Paneer Tikka,Dessert,534.33,True
+108,14,Grilled Biryani,Beverage,560.08,True
+109,14,Masala Wrap,Main Course,419.32,False
+110,14,Chilli Burger,Beverage,523.85,True
+111,14,Mushroom Pizza,Main Course,118.32,True
+112,14,Butter Tikka,Starter,517.61,True
+113,14,Masala Fry,Beverage,126.88,True
+114,14,Butter Tikka,Main Course,437.44,True
+115,14,Cheese Cake,Beverage,477.95,True
+116,15,Butter Wrap,Dessert,294.02,True
+117,15,Grilled Pasta,Main Course,319.69,True
+118,15,Paneer Roll,Main Course,498.42,True
+119,15,Mushroom Biryani,Dessert,543.35,True
+120,15,Grilled Biryani,Beverage,520.12,True
+121,15,Grilled Wrap,Dessert,510.53,True
+122,15,Chicken Wrap,Main Course,264.99,True
+123,15,Veg Roll,Main Course,318.49,True
+124,15,Masala Pasta,Beverage,222.38,True
+125,15,Masala Cake,Dessert,266.25,True
+126,15,Masala Roll,Starter,258.03,True
+127,15,Chicken Burger,Starter,414.5,True
+128,16,Masala Biryani,Dessert,476.43,True
+129,16,Chilli Noodles,Main Course,561.54,True
+130,16,Chilli Noodles,Beverage,547.1,True
+131,16,Masala Burger,Starter,320.05,False
+132,16,Butter Fry,Main Course,320.5,False
+133,16,Masala Burger,Dessert,316.62,True
+134,16,Mushroom Noodles,Main Course,168.04,True
+135,16,Tandoori Pizza,Main Course,197.36,True
+136,16,Chicken Cake,Beverage,479.64,True
+137,16,Mushroom Burger,Main Course,390.47,True
+138,16,Paneer Biryani,Beverage,519.53,True
+139,16,Tandoori Wrap,Dessert,239.88,True
+140,17,Paneer Pasta,Beverage,165.64,True
+141,17,Mushroom Burger,Dessert,117.34,True
+142,17,Cheese Cake,Starter,277.08,True
+143,17,Tandoori Biryani,Starter,277.36,True
+144,17,Butter Pasta,Starter,244.77,True
+145,17,Grilled Roll,Starter,364.26,False
+146,18,Paneer Pizza,Starter,210.85,True
+147,18,Veg Biryani,Dessert,224.23,True
+148,18,Paneer Biryani,Main Course,229.71,False
+149,18,Cheese Roll,Main Course,450.32,True
+150,18,Butter Biryani,Main Course,121.59,True
+151,18,Grilled Roll,Dessert,154.02,True
+152,18,Chilli Burger,Main Course,529.55,True
+153,19,Chilli Burger,Starter,567.79,True
+154,19,Chilli Cake,Starter,296.82,True
+155,19,Butter Wrap,Beverage,219.19,True
+156,19,Chilli Cake,Dessert,506.52,False
+157,19,Paneer Wrap,Main Course,577.93,True
+158,19,Mushroom Pasta,Starter,281.22,False
+159,19,Veg Biryani,Dessert,315.52,False
+160,19,Paneer Pizza,Main Course,309.36,True
+161,19,Grilled Tikka,Starter,116.19,False
+162,19,Masala Cake,Dessert,413.12,True
+163,19,Cheese Biryani,Dessert,159.85,True
+164,19,Chilli Pizza,Starter,242.76,True
+165,20,Veg Biryani,Starter,396.14,False
+166,20,Masala Biryani,Beverage,394.12,True
+167,20,Grilled Biryani,Main Course,541.6,True
+168,20,Cheese Noodles,Dessert,220.7,True
+169,20,Tandoori Noodles,Beverage,403.98,False
+170,20,Mushroom Pasta,Main Course,373.29,True
+171,20,Grilled Fry,Dessert,405.4,True
+172,20,Masala Tikka,Main Course,265.83,True
+173,20,Tandoori Fry,Beverage,583.8,True
+174,20,Paneer Wrap,Main Course,529.93,True
+175,21,Tandoori Wrap,Beverage,233.96,True
+176,21,Masala Tikka,Starter,178.28,True
+177,21,Cheese Wrap,Beverage,427.86,False
+178,21,Chilli Roll,Dessert,466.71,True
+179,21,Tandoori Pizza,Main Course,307.38,True
+180,21,Veg Pizza,Dessert,509.6,False
+181,21,Chicken Roll,Dessert,491.47,True
+182,21,Chilli Biryani,Starter,304.21,False
+183,21,Cheese Biryani,Beverage,297.75,False
+184,21,Veg Pasta,Dessert,535.38,False
+185,22,Chilli Roll,Beverage,243.03,True
+186,22,Masala Wrap,Beverage,362.06,False
+187,22,Chilli Wrap,Starter,492.54,True
+188,22,Chilli Roll,Dessert,191.11,True
+189,22,Veg Pasta,Beverage,389.79,True
+190,22,Butter Wrap,Main Course,578.38,True
+191,23,Paneer Tikka,Starter,227.27,True
+192,23,Masala Fry,Dessert,368.25,True
+193,23,Tandoori Fry,Beverage,293.76,True
+194,23,Paneer Cake,Dessert,325.53,True
+195,23,Chicken Fry,Main Course,148.48,True
+196,23,Tandoori Pasta,Main Course,538.92,True
+197,23,Grilled Pasta,Beverage,482.66,False
+198,23,Butter Fry,Starter,184.36,True
+199,23,Butter Biryani,Dessert,355.3,True
+200,23,Masala Wrap,Beverage,414.55,False
+201,23,Masala Fry,Main Course,351.44,True
+202,24,Veg Tikka,Starter,275.59,True
+203,24,Chilli Tikka,Starter,252.37,False
+204,24,Paneer Noodles,Beverage,520.08,False
+205,24,Paneer Tikka,Main Course,186.6,False
+206,24,Cheese Noodles,Main Course,386.23,True
+207,24,Cheese Biryani,Main Course,177.39,False
+208,24,Chicken Tikka,Starter,137.07,False
+209,24,Grilled Roll,Beverage,502.3,True
+210,24,Paneer Cake,Dessert,170.96,True
+211,24,Butter Noodles,Main Course,115.45,True
+212,24,Cheese Biryani,Dessert,194.83,False
+213,25,Paneer Tikka,Main Course,544.27,False
+214,25,Paneer Roll,Starter,409.09,True
+215,25,Mushroom Tikka,Main Course,564.41,True
+216,25,Butter Tikka,Beverage,250.84,False
+217,25,Masala Roll,Starter,220.46,True
+218,25,Cheese Pizza,Beverage,253.58,True
+219,25,Paneer Pizza,Starter,185.73,True
+220,25,Chilli Burger,Starter,584.77,True
+221,25,Chilli Fry,Dessert,156.44,False
+222,25,Chilli Wrap,Beverage,424.64,True
+223,25,Chilli Wrap,Main Course,292.68,True
+224,26,Butter Pizza,Beverage,116.46,True
+225,26,Butter Burger,Main Course,451.94,True
+226,26,Mushroom Noodles,Main Course,376.49,True
+227,26,Mushroom Burger,Dessert,275.46,True
+228,26,Chilli Cake,Main Course,247.63,True
+229,26,Tandoori Pizza,Main Course,528.19,True
+230,26,Masala Cake,Beverage,392.78,True
+231,26,Tandoori Pizza,Beverage,403.1,True
+232,26,Veg Biryani,Starter,370.3,True
+233,27,Paneer Cake,Main Course,254.39,True
+234,27,Chicken Burger,Main Course,259.52,True
+235,27,Chicken Fry,Dessert,501.59,True
+236,27,Mushroom Biryani,Dessert,142.97,True
+237,27,Veg Pasta,Dessert,276.95,True
+238,27,Veg Noodles,Main Course,113.79,True
+239,27,Chilli Tikka,Beverage,223.21,True
+240,27,Butter Biryani,Main Course,244.74,True
+241,27,Cheese Pizza,Starter,301.33,False
+242,27,Veg Pasta,Main Course,477.48,True
+243,27,Chilli Tikka,Dessert,413.73,True
+244,28,Cheese Roll,Dessert,561.85,False
+245,28,Butter Tikka,Starter,516.14,True
+246,28,Paneer Cake,Starter,586.06,True
+247,28,Paneer Wrap,Main Course,487.56,True
+248,28,Chicken Pasta,Beverage,598.05,False
+249,28,Mushroom Noodles,Starter,273.52,True
+250,28,Grilled Wrap,Beverage,353.33,True
+251,28,Chilli Fry,Main Course,343.76,True
+252,29,Tandoori Noodles,Main Course,372.2,True
+253,29,Tandoori Noodles,Main Course,580.8,True
+254,29,Butter Wrap,Beverage,145.27,True
+255,29,Veg Burger,Beverage,434.17,True
+256,29,Mushroom Tikka,Beverage,165.55,True
+257,30,Veg Burger,Main Course,265.79,True
+258,30,Tandoori Pasta,Main Course,437.51,True
+259,30,Cheese Roll,Beverage,514.59,True
+260,30,Masala Tikka,Dessert,342.3,True
+261,30,Paneer Noodles,Dessert,197.56,True
+262,30,Grilled Biryani,Main Course,261.24,True
+263,30,Cheese Wrap,Dessert,183.05,True
+264,30,Paneer Tikka,Beverage,595.06,True
+265,30,Chicken Wrap,Dessert,153.4,True
+266,31,Grilled Pizza,Dessert,103.15,True
+267,31,Masala Cake,Dessert,425.54,True
+268,31,Veg Tikka,Starter,486.22,True
+269,31,Masala Wrap,Main Course,580.01,False
+270,31,Veg Biryani,Dessert,470.16,True
+271,31,Chilli Burger,Dessert,259.08,True
+272,31,Veg Fry,Dessert,517.91,True
+273,31,Mushroom Tikka,Starter,152.62,True
+274,31,Paneer Pizza,Beverage,310.49,True
+275,31,Masala Cake,Starter,169.94,True
+276,31,Veg Burger,Beverage,417.38,True
+277,32,Paneer Roll,Beverage,194.41,True
+278,32,Paneer Tikka,Beverage,170.58,True
+279,32,Paneer Fry,Beverage,544.31,True
+280,32,Grilled Tikka,Main Course,551.0,True
+281,32,Chilli Noodles,Starter,320.58,False
+282,32,Butter Cake,Main Course,333.42,False
+283,33,Tandoori Roll,Beverage,584.65,True
+284,33,Chilli Cake,Starter,504.57,True
+285,33,Butter Cake,Dessert,381.51,True
+286,33,Butter Roll,Main Course,248.66,True
+287,33,Tandoori Tikka,Main Course,210.24,True
+288,33,Chicken Burger,Dessert,376.44,True
+289,33,Butter Fry,Main Course,381.41,True
+290,33,Masala Biryani,Main Course,189.25,True
+291,33,Tandoori Biryani,Main Course,530.09,True
+292,33,Chicken Pizza,Dessert,453.55,True
+293,34,Mushroom Fry,Starter,466.79,False
+294,34,Cheese Biryani,Beverage,438.75,True
+295,34,Veg Fry,Starter,412.3,False
+296,34,Chicken Roll,Beverage,371.15,True
+297,34,Cheese Roll,Starter,167.4,False
+298,34,Paneer Pasta,Main Course,122.61,True
+299,34,Paneer Cake,Main Course,328.85,True
+300,34,Veg Pasta,Starter,409.59,True
+301,34,Cheese Biryani,Dessert,183.0,True
+302,34,Paneer Noodles,Starter,218.65,False
+303,34,Tandoori Wrap,Beverage,120.75,False
+304,34,Butter Biryani,Dessert,373.42,False
+305,35,Paneer Pizza,Dessert,276.18,True
+306,35,Paneer Cake,Beverage,155.79,True
+307,35,Grilled Biryani,Starter,499.35,True
+308,35,Veg Fry,Dessert,535.87,True
+309,35,Veg Cake,Dessert,368.22,True
+310,35,Grilled Tikka,Starter,270.18,True
+311,36,Tandoori Roll,Starter,499.23,True
+312,36,Chicken Burger,Beverage,520.48,True
+313,36,Grilled Pasta,Main Course,535.51,False
+314,36,Tandoori Biryani,Dessert,263.64,True
+315,36,Masala Burger,Starter,204.69,True
+316,36,Grilled Wrap,Beverage,292.94,True
+317,36,Butter Tikka,Dessert,388.58,True
+318,36,Mushroom Tikka,Main Course,328.7,False
+319,36,Paneer Burger,Main Course,235.33,True
+320,36,Chicken Fry,Dessert,277.42,False
+321,36,Tandoori Cake,Main Course,595.09,True
+322,36,Tandoori Biryani,Main Course,486.15,False
+323,37,Butter Noodles,Main Course,535.41,True
+324,37,Chicken Noodles,Dessert,468.77,False
+325,37,Mushroom Wrap,Beverage,266.21,True
+326,37,Butter Roll,Dessert,546.1,True
+327,37,Butter Burger,Main Course,201.68,True
+328,37,Chilli Roll,Beverage,383.36,True
+329,38,Cheese Biryani,Main Course,249.74,True
+330,38,Masala Cake,Dessert,135.75,True
+331,38,Cheese Biryani,Main Course,251.12,True
+332,38,Grilled Wrap,Beverage,459.6,True
+333,38,Grilled Wrap,Main Course,236.94,True
+334,38,Tandoori Tikka,Main Course,412.22,True
+335,38,Paneer Pizza,Starter,298.79,True
+336,39,Tandoori Biryani,Main Course,219.87,True
+337,39,Veg Cake,Starter,138.65,False
+338,39,Butter Burger,Starter,193.09,False
+339,39,Paneer Wrap,Starter,205.11,True
+340,39,Paneer Roll,Beverage,403.89,True
+341,39,Veg Tikka,Beverage,497.13,True
+342,39,Cheese Wrap,Beverage,592.91,True
+343,39,Masala Roll,Starter,111.87,True
+344,39,Cheese Wrap,Starter,306.57,True
+345,40,Chicken Tikka,Main Course,204.24,False
+346,40,Chicken Wrap,Dessert,310.62,False
+347,40,Cheese Fry,Main Course,427.68,False
+348,40,Cheese Wrap,Main Course,469.54,True
+349,40,Grilled Tikka,Dessert,424.82,False
+350,40,Grilled Fry,Dessert,279.68,False
+351,40,Masala Burger,Dessert,103.52,True

@@ -1,0 +1,41 @@
+restaurant_id,name,cuisine,city,rating,is_open,created_at
+1,Green Garden,Mexican,Pune,4.8,True,2025-03-06 14:38:40
+2,Spice Diner,Chinese,Chennai,3.8,False,2024-08-29 20:43:46
+3,Golden Corner,Thai,Pune,4.0,True,2022-07-25 02:11:06
+4,Street Diner,Mexican,Bengaluru,4.2,True,2022-03-26 11:55:09
+5,Spice Plate,Biryani,Chennai,3.6,True,2024-03-23 14:09:44
+6,Coastal Hub,Italian,Kolkata,4.0,False,2023-04-13 19:52:17
+7,Mama Table,Italian,Pune,4.0,False,2025-07-10 23:39:49
+8,Street Table,Chinese,Bengaluru,3.1,True,2025-01-04 00:29:27
+9,Urban House,South Indian,Mumbai,4.5,True,2024-10-30 18:36:48
+10,Green Corner,Continental,Bengaluru,4.3,True,2024-09-28 21:22:49
+11,Fusion Treats,Mexican,Ahmedabad,3.7,False,2024-03-15 00:52:26
+12,Street Diner,Chinese,Bengaluru,3.9,True,2022-04-06 13:56:57
+13,Fusion Bite,Bakery,Delhi,4.3,True,2022-09-05 08:01:33
+14,Spice Kitchen,North Indian,Hyderabad,3.9,True,2023-10-04 20:24:08
+15,Royal Hub,Mexican,Kolkata,3.9,False,2022-09-29 07:01:53
+16,Fusion Garden,South Indian,Chennai,3.3,True,2025-01-30 04:05:15
+17,Street Hub,North Indian,Kolkata,4.3,True,2025-03-03 14:36:05
+18,Street Kitchen,Cafe,Delhi,4.1,True,2022-06-13 13:11:09
+19,Green Diner,North Indian,Mumbai,4.1,True,2025-03-10 13:07:44
+20,Green Bite,Continental,Kolkata,3.2,False,2023-02-17 02:57:39
+21,Green Diner,South Indian,Bengaluru,4.8,True,2023-02-09 11:14:48
+22,Royal Diner,Chinese,Pune,4.1,True,2023-08-27 20:03:14
+23,Coastal Plate,Italian,Kolkata,3.8,False,2023-12-31 07:57:56
+24,Street Hub,North Indian,Bengaluru,5.0,True,2025-01-30 15:54:56
+25,Royal Plate,Continental,Hyderabad,4.0,True,2024-08-25 05:01:59
+26,Mama Kitchen,Mexican,Delhi,3.3,True,2022-02-21 03:06:30
+27,Spice Kitchen,South Indian,Delhi,3.8,True,2022-08-09 08:14:15
+28,Spice Bite,North Indian,Delhi,2.9,True,2024-12-18 18:19:53
+29,Tasty Bite,South Indian,Pune,4.5,True,2025-06-24 00:54:23
+30,Fusion Kitchen,Bakery,Mumbai,3.8,True,2022-11-16 13:55:29
+31,Royal Kitchen,North Indian,Bengaluru,3.6,True,2025-07-05 16:28:34
+32,Green House,South Indian,Delhi,4.5,True,2025-05-15 06:40:50
+33,Royal Garden,Biryani,Pune,3.2,True,2023-02-10 16:44:10
+34,Spice Treats,Continental,Chennai,4.3,True,2025-01-16 21:32:54
+35,Coastal Treats,Mexican,Ahmedabad,3.0,True,2024-08-18 10:59:40
+36,Spice Corner,North Indian,Kolkata,3.7,False,2025-04-15 20:29:38
+37,Tasty Treats,Cafe,Bengaluru,3.4,False,2024-05-29 09:38:30
+38,Royal Kitchen,Mexican,Chennai,4.7,True,2023-11-09 09:24:05
+39,Spice Hub,Italian,Chennai,4.9,True,2022-01-07 18:36:53
+40,Coastal House,South Indian,Ahmedabad,3.8,True,2024-02-08 07:20:27

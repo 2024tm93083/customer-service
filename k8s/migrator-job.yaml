@@ -1,0 +1,72 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrator
+  namespace: ofd
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: migrator
+        image: postgres:15
+        command: ["/bin/bash", "/scripts/run_migrations.sh"]
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-creds
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-creds
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: CUSTOMER_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-names
+              key: CUSTOMER_DB
+        - name: RESTAURANT_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-names
+              key: RESTAURANT_DB
+        - name: ORDER_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-names
+              key: ORDER_DB
+        - name: PAYMENT_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-names
+              key: PAYMENT_DB
+        - name: DELIVERY_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-names
+              key: DELIVERY_DB
+        - name: MIGRATOR_PSQL_CONNECT_RETRIES
+          value: "30"
+        - name: MIGRATOR_PSQL_RETRY_INTERVAL
+          value: "3"
+        volumeMounts:
+        - name: scripts
+          mountPath: /scripts
+        - name: migrations
+          mountPath: /migrations
+        - name: seed
+          mountPath: /seed
+      volumes:
+      - name: scripts
+        hostPath:
+          path: C:/BITS/scalable service/assignment ps2- group11/customer-service/scripts
+      - name: migrations
+        hostPath:
+          path: C:/BITS/scalable service/assignment ps2- group11/customer-service/migrations
+      - name: seed
+        hostPath:
+          path: C:/BITS/scalable service/assignment ps2- group11/customer-service/seed

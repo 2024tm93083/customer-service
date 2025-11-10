@@ -1,0 +1,312 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-db
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: customer-db }
+  template:
+    metadata:
+      labels: { app: customer-db }
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: CUSTOMER_DB }
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pgdata
+        persistentVolumeClaim:
+          claimName: pvc-customer-db
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-db
+  namespace: ofd
+spec:
+  type: ClusterIP
+  selector: { app: customer-db }
+  ports:
+  - port: 5432
+    targetPort: 5432
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-customer-db
+  namespace: ofd
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# restaurant DB
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-db
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: restaurant-db }
+  template:
+    metadata:
+      labels: { app: restaurant-db }
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: RESTAURANT_DB }
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pgdata
+        persistentVolumeClaim:
+          claimName: pvc-restaurant-db
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurant-db
+  namespace: ofd
+spec:
+  type: ClusterIP
+  selector: { app: restaurant-db }
+  ports:
+  - port: 5432
+    targetPort: 5432
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-restaurant-db
+  namespace: ofd
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# order DB
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-db
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: order-db }
+  template:
+    metadata:
+      labels: { app: order-db }
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: ORDER_DB }
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pgdata
+        persistentVolumeClaim:
+          claimName: pvc-order-db
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-db
+  namespace: ofd
+spec:
+  type: ClusterIP
+  selector: { app: order-db }
+  ports:
+  - port: 5432
+    targetPort: 5432
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-order-db
+  namespace: ofd
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# payment DB
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-db
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: payment-db }
+  template:
+    metadata:
+      labels: { app: payment-db }
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: PAYMENT_DB }
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pgdata
+        persistentVolumeClaim:
+          claimName: pvc-payment-db
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-db
+  namespace: ofd
+spec:
+  type: ClusterIP
+  selector: { app: payment-db }
+  ports:
+  - port: 5432
+    targetPort: 5432
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-payment-db
+  namespace: ofd
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# delivery DB (optional placeholder)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery-db
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: delivery-db }
+  template:
+    metadata:
+      labels: { app: delivery-db }
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: DELIVERY_DB }
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: pgdata
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pgdata
+        persistentVolumeClaim:
+          claimName: pvc-delivery-db
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: delivery-db
+  namespace: ofd
+spec:
+  type: ClusterIP
+  selector: { app: delivery-db }
+  ports:
+  - port: 5432
+    targetPort: 5432
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-delivery-db
+  namespace: ofd
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 1Gi

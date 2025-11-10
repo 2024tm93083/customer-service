@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-names
+  namespace: ofd
+data:
+  CUSTOMER_DB: customer_db
+  RESTAURANT_DB: restaurant_db
+  ORDER_DB: order_db
+  PAYMENT_DB: payment_db
+  DELIVERY_DB: delivery_db

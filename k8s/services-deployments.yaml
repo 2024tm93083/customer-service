@@ -1,0 +1,218 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: customer-service }
+  template:
+    metadata:
+      labels: { app: customer-service }
+    spec:
+      containers:
+      - name: customer
+        image: customer-service:latest
+        env:
+        - name: POSTGRES_HOST
+          value: customer-db
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: CUSTOMER_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: CUSTOMER_DB }
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-service
+  namespace: ofd
+spec:
+  type: NodePort
+  selector: { app: customer-service }
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30030
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-service
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: restaurant-service }
+  template:
+    metadata:
+      labels: { app: restaurant-service }
+    spec:
+      containers:
+      - name: restaurant
+        image: restaurant-service:latest
+        env:
+        - name: POSTGRES_HOST
+          value: restaurant-db
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: RESTAURANT_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: RESTAURANT_DB }
+        ports:
+        - containerPort: 4000
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 4000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurant-service
+  namespace: ofd
+spec:
+  type: NodePort
+  selector: { app: restaurant-service }
+  ports:
+  - port: 4000
+    targetPort: 4000
+    nodePort: 30040
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: order-service }
+  template:
+    metadata:
+      labels: { app: order-service }
+    spec:
+      containers:
+      - name: order
+        image: order-service:latest
+        env:
+        - name: POSTGRES_HOST
+          value: order-db
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: ORDER_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: ORDER_DB }
+        - name: RESTAURANT_SERVICE_URL
+          value: "http://restaurant-service:4000"
+        - name: PAYMENT_SERVICE_URL
+          value: "http://payment-service:6000"
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  namespace: ofd
+spec:
+  type: NodePort
+  selector: { app: order-service }
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30050
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: ofd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: payment-service }
+  template:
+    metadata:
+      labels: { app: payment-service }
+    spec:
+      containers:
+      - name: payment
+        image: payment-service:latest
+        env:
+        - name: POSTGRES_HOST
+          value: payment-db
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_USER }
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: postgres-creds, key: POSTGRES_PASSWORD }
+        - name: PAYMENT_DB
+          valueFrom:
+            configMapKeyRef: { name: db-names, key: PAYMENT_DB }
+        ports:
+        - containerPort: 6000
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 6000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: ofd
+spec:
+  type: NodePort
+  selector: { app: payment-service }
+  ports:
+  - port: 6000
+    targetPort: 6000
+    nodePort: 30060

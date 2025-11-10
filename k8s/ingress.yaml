@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ofd-ingress
+  namespace: ofd
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /customer
+        pathType: Prefix
+        backend:
+          service:
+            name: customer-service
+            port:
+              number: 3000
+      - path: /restaurant
+        pathType: Prefix
+        backend:
+          service:
+            name: restaurant-service
+            port:
+              number: 4000
+      - path: /order
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service
+            port:
+              number: 5000
+      - path: /payment
+        pathType: Prefix
+        backend:
+          service:
+            name: payment-service
+            port:
+              number: 6000

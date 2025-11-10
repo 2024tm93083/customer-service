@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../order-service"
+		},
+		{
+			"path": "../payment-service"
+		},
+		{
+			"path": "../restaurant-service"
+		}
+	],
+	"settings": {}
+}
